@@ -318,7 +318,8 @@ public class SearchText extends Activity implements OnClickListener {
             /* The bitmap is set to ImageView onPost downloading and loadNext method is called for next URL in the URLs list*/
             if (bitmap != null) {
                 imagev.setImageBitmap(bitmap);
-                Animation fadeOut = new AlphaAnimation(1, 0f);
+                imagev.setAlpha(1f);
+                Animation fadeOut = new AlphaAnimation(1, .3f);
                 fadeOut.setInterpolator(new AccelerateInterpolator());
                 fadeOut.setDuration(200);
 
@@ -327,7 +328,8 @@ public class SearchText extends Activity implements OnClickListener {
                 {
                     public void onAnimationEnd(Animation animation)
                     {
-                        imagev.setVisibility(View.GONE);
+                        //imagev.setVisibility(View.GONE);
+                        imagev.setAlpha(.3f);
                     }
                     public void onAnimationRepeat(Animation animation) {}
                     public void onAnimationStart(Animation animation) {}
