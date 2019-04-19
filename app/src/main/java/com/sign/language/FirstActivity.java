@@ -46,7 +46,7 @@ public class FirstActivity extends Activity implements OnClickListener {
                 finish();
                 break;
 
-            case R.id.fuw:
+            case R.id.fuw://fuw=Frequently Used Words
                 intent.putExtra("Userchoice", 3);
                 startActivity(intent);
                 finish();
