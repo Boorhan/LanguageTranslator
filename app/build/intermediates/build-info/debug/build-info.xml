@@ -2,61 +2,79 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="24"
-    build-mode="HOT_WARM"
+    build-mode="FULL"
     density="xxhdpi"
     format="10"
     plugin-version="3.3.2"
-    timestamp="1555690807657"
+    timestamp="1555693072122"
     token="100436371961916097"
-    verifier="COMPATIBLE" >
+    verifier="MANIFEST_FILE_CHANGE" >
 
     <task
         name="javac"
-        duration="163" />
+        duration="265" />
     <task
         name="instant-run-dex"
-        duration="27" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="17" />
+        duration="81" />
     <task
         name="verifier"
-        duration="19" />
+        duration="14" />
 
     <artifact
-        location="D:\Sign-Language-Translator-master\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Sign-Language-Translator-master\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1555690534743"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="1555693072122"
+        verifier="MANIFEST_FILE_CHANGE" >
         <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
             location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
@@ -65,56 +83,23 @@
             location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Sign-Language-Translator-master\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
             location="D:\Sign-Language-Translator-master\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1555690556444"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\builds\debug\1555690556444\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1555690675503"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\builds\debug\1555690675503\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1555690707937"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\builds\debug\1555690707937\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1555690729486"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\builds\debug\1555690729486\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1555690779108"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\builds\debug\1555690779108\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1555690807657"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\Sign-Language-Translator-master\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
