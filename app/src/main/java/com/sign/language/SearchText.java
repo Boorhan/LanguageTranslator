@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -317,14 +318,10 @@ public class SearchText extends Activity implements OnClickListener {
             /* The bitmap is set to ImageView onPost downloading and loadNext method is called for next URL in the URLs list*/
             if (bitmap != null) {
                 imagev.setImageBitmap(bitmap);
-
-            }
-            try {
-                loadNext();
-                Thread.sleep(500);
-                Animation fadeOut = new AlphaAnimation(1, .5f);
+                Animation fadeOut = new AlphaAnimation(1, 0f);
                 fadeOut.setInterpolator(new AccelerateInterpolator());
-                fadeOut.setDuration(500);
+                fadeOut.setDuration(200);
+
 
                 fadeOut.setAnimationListener(new Animation.AnimationListener()
                 {
@@ -335,8 +332,28 @@ public class SearchText extends Activity implements OnClickListener {
                     public void onAnimationRepeat(Animation animation) {}
                     public void onAnimationStart(Animation animation) {}
                 });
-
+                fadeOut.setStartOffset(300);
                 imagev.startAnimation(fadeOut);
+
+            }
+            try {
+                loadNext();
+//                Animation fadeOut = new AlphaAnimation(1, 0f);
+//                fadeOut.setInterpolator(new AccelerateInterpolator());
+//                fadeOut.setStartOffset(200);
+//                fadeOut.setDuration(200);
+//
+//                fadeOut.setAnimationListener(new Animation.AnimationListener()
+//                {
+//                    public void onAnimationEnd(Animation animation)
+//                    {
+//                        imagev.setVisibility(View.GONE);
+//                    }
+//                    public void onAnimationRepeat(Animation animation) {}
+//                    public void onAnimationStart(Animation animation) {}
+//                });
+//
+//                imagev.startAnimation(fadeOut);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

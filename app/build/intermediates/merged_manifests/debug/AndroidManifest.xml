@@ -18,6 +18,7 @@
         android:label="@string/app_name"
         android:testOnly="true"
         android:theme="@android:style/Theme.NoTitleBar" >
+        <activity android:name="com.sign.language.LearningMenu" />
         <activity
             android:name="com.sign.language.MainActivity"
             android:configChanges="orientation|keyboardHidden"
