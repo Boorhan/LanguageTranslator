@@ -23,10 +23,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -34,6 +40,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class SearchText extends Activity implements OnClickListener {
+    private boolean searched;
     private static final int REQUEST_CODE = 1234;
     private EditText entertext;
     private ImageView imagev;
@@ -90,6 +97,8 @@ public class SearchText extends Activity implements OnClickListener {
         }
 
         if (v.getId() == R.id.search_txt) {
+
+            searched = true;
 
             inputManager = (InputMethodManager) this.getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
 
@@ -192,7 +201,9 @@ public class SearchText extends Activity implements OnClickListener {
     private void initSpeechRecognizer() {
         if (sr == null) {
             sr = SpeechRecognizer.createSpeechRecognizer(this);
+
             /* Disable the voice translation button if speech recognition is not available in the phone */
+
             if (!SpeechRecognizer.isRecognitionAvailable(getApplicationContext())) {
                 Toast.makeText(getApplicationContext(), "Speech Recognition is not available in your phone,You have to enter text in edit box next to you", Toast.LENGTH_LONG).show();
                 vsearchbtn.setEnabled(false);
@@ -210,6 +221,7 @@ public class SearchText extends Activity implements OnClickListener {
     }
 
     /* Removes URL one by one from the list and delegates to LoadImage method */
+
     private void loadNext() throws InterruptedException, ExecutionException {
         if (mURLs.isEmpty()) {
             return;
@@ -229,25 +241,31 @@ public class SearchText extends Activity implements OnClickListener {
 
         @Override
         protected Void doInBackground(Void... args) {
+
             /* if url is URL of number/alphabet */
             if(url.indexOf("numbers")>=0 || url.indexOf("fingerspelling")>=0){
                 try {
                     bitmap = BitmapFactory.decodeStream((InputStream) new URL(url.toString()).getContent());
+
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
 
             /* if url is URL of a word */
+
             else {
                 try {
+
                     /* Connect to the website using Jsoup and retrieve the first "jpg" image as Bitmap*/
+
                     Document doc = Jsoup.connect(url.toString()).ignoreContentType(true).get();
                     Element img = doc.select("img[src$=.jpg]").first();
                     String Str = img.attr("abs:src");
                     bitmap = BitmapFactory.decodeStream((InputStream) new URL(Str).getContent());
                 }
                 catch (UnknownHostException e) {
+
                     /* UnKnownHostException raised when there is no internet */
                     runOnUiThread(new Runnable() {
                         public void run() {
@@ -256,6 +274,7 @@ public class SearchText extends Activity implements OnClickListener {
                     });
                 }
                 catch (Exception e) {
+
                     /* Exception is raised when the word is not there in lifeprint.com */
                     bitmap = null;
                     String t = url.toString();
@@ -264,8 +283,11 @@ public class SearchText extends Activity implements OnClickListener {
                     String str = t.substring(46, t.lastIndexOf('.'));
 
                     /* Traverse the word from last and add URL for each character to the beginning of URLs list*/
+
                     for (int i = str.length() - 1; i >= 0; i--) {
+
                         /* If the character is a number use "http://www.lifeprint.com/asl101/signjpegs/numbers/number0" and add it to the beginning of URLs list */
+
                         if (str.charAt(i) <= '9' && str.charAt(i) >= '0')
                             mURLs.add(0, new StringBuffer("http://www.lifeprint.com/asl101/signjpegs/numbers/number0" + str.charAt(i) + ".jpg"));
 
@@ -288,12 +310,33 @@ public class SearchText extends Activity implements OnClickListener {
 
         @Override
         protected void onPostExecute(Void result) {
+
+            //CHANGING SIGN
+
+
             /* The bitmap is set to ImageView onPost downloading and loadNext method is called for next URL in the URLs list*/
             if (bitmap != null) {
                 imagev.setImageBitmap(bitmap);
+
             }
             try {
                 loadNext();
+                Thread.sleep(500);
+                Animation fadeOut = new AlphaAnimation(1, .5f);
+                fadeOut.setInterpolator(new AccelerateInterpolator());
+                fadeOut.setDuration(500);
+
+                fadeOut.setAnimationListener(new Animation.AnimationListener()
+                {
+                    public void onAnimationEnd(Animation animation)
+                    {
+                        imagev.setVisibility(View.GONE);
+                    }
+                    public void onAnimationRepeat(Animation animation) {}
+                    public void onAnimationStart(Animation animation) {}
+                });
+
+                imagev.startAnimation(fadeOut);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

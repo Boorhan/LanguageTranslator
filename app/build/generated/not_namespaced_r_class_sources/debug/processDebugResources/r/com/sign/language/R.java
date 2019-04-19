@@ -83,7 +83,8 @@ public final class R {
     public static final int icon=0x7f04003a;
     public static final int micblue=0x7f04003b;
     public static final int searchblue=0x7f04003c;
-    public static final int yoasl=0x7f04003d;
+    public static final int white=0x7f04003d;
+    public static final int yoasl=0x7f04003e;
   }
   public static final class id {
     public static final int Exit_button=0x7f050000;

@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.sign.language"
-        minSdkVersion=14
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 28
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_5
             targetCompatibility JavaVersion.VERSION_1_5
@@ -21,6 +21,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+    compileOptions {
+        sourceCompatibility = '1.6'
+        targetCompatibility = '1.6'
     }
 }
 
